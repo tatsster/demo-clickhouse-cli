@@ -1,0 +1,14 @@
+---
+operator: UpdateUser
+username: viewer-1
+delete: false # if delete = true then all remain fields could be omitted
+# Using double SHA1 password
+# PASSWORD=$(base64 < /dev/urandom | head -c8); echo "$PASSWORD"; echo -n "$PASSWORD" | openssl dgst -sha1 -binary | openssl dgst -sha1
+password: password
+profile: default
+quota: default
+databases: # restrict database to access
+  - database-1
+  - database-2
+network: local | any_networks # access from "localhost" or "any networks"
+enable: false # if not enable, then will dry run

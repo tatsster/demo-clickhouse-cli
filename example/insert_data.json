@@ -1,0 +1,23 @@
+{
+    "org_id": "tiki_aff",
+    "data": [
+        [
+            {
+                "name": "uuid",
+                "value": "3"
+            },
+            {
+                "name": "name",
+                "value": "Logitech G604"
+            },
+            {
+                "name": "price",
+                "value": "64.9"
+            },
+            {
+                "name": "event_time",
+                "value": "2022-08-11 08:09:00"
+            }
+        ]
+    ]
+}

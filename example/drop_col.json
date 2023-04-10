@@ -1,0 +1,6 @@
+{
+    "org_id": "tiki_aff",
+    "database": "tiki",
+    "table": "daily",
+    "column": "Addr"
+}

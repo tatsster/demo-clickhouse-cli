@@ -1,0 +1,16 @@
+---
+# refers to https://clickhouse.tech/docs/en/sql_reference/statements/alter/
+#           https://www.altinity.com/blog/2019/7/new-encodings-to-improve-clickhouse
+# cannot update/delete primary key (key using for partition by or order by)
+operator: ModifyColumn
+cluster_name: tiki_cdp
+hosts: # if has not cluster_name, must specify hosts that table will be created to
+  - host: clickhouse-0.clickhouse-hs
+    port: 9000
+name: session_events
+columns:
+  - name: revenue
+    expression: Float32
+  - name: price
+    expression: Float32
+enable: false # if not enable, then will dry run

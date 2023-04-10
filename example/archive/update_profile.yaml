@@ -1,0 +1,11 @@
+---
+operator: UpdateProfile
+name: readonly
+readonly: true # profile only read
+max_memory_usage: 10000000000 # maximum bytes that profile can use for single query, use to limit big query
+other_settings: # refer to: https://clickhouse.tech/docs/en/operations/settings/settings/
+  - name: input_format_import_nested_json
+    value: 1
+  - name: input_format_skip_unknown_fields
+    value: 1
+enable: false # if not enable, then will dry run

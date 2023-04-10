@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "22657f30-1da4-4aca-8555-68a8bbe87466",
+		"name": "Clickhouse CLI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21492938"
+	},
+	"item": [
+		{
+			"name": "Create table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": \"tiki_aff\",\n    \"database\": \"tiki\",\n    \"table\": \"daily\",\n    \"engine\": \"MergeTree\",\n    \"columns\": [\n        {\n            \"name\": \"uuid\",\n            \"expression\": \"String\"\n        },\n        {\n            \"name\": \"name\",\n            \"expression\": \"Nullable(String) CODEC(ZSTD(3))\"\n        }, \n        {\n            \"name\": \"event_time\",\n            \"expression\": \"DateTime ('Asia/Ho_Chi_Minh')\"\n        },\n        {\n            \"name\": \"price\",\n            \"expression\": \"Float64\"\n        }\n    ],\n    \"partition_by\": [\"uuid\"],\n    \"order_by\": [\"uuid\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/tables/create",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"tables",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop table",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": \"tiki_aff\",\n    \"database\": \"tiki\",\n    \"table\": \"daily\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/tables/drop",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"tables",
+						"drop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert column",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": \"tiki_aff\",\n    \"database\": \"tiki\",\n    \"table\": \"daily\",\n    \"column\": {\n        \"name\": \"Addr\",\n        \"expression\": \"String\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/column/add",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"column",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Drop column",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"org_id\": \"tiki_aff\",\n    \"database\": \"tiki\",\n    \"table\": \"daily\",\n    \"column\": \"Addr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/api/column/drop",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"column",
+						"drop"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

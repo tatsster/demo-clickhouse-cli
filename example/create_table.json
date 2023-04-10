@@ -1,0 +1,26 @@
+{
+    "org_id": "tiki_aff",
+    "database": "tiki",
+    "table": "daily",
+    "engine": "MergeTree",
+    "columns": [
+        {
+            "name": "uuid",
+            "expression": "String"
+        },
+        {
+            "name": "name",
+            "expression": "Nullable(String) CODEC(ZSTD(3))"
+        }, 
+        {
+            "name": "event_time",
+            "expression": "DateTime ('Asia/Ho_Chi_Minh')"
+        },
+        {
+            "name": "price",
+            "expression": "Float64"
+        }
+    ],
+    "partition_by": ["uuid"],
+    "order_by": ["uuid"]
+}

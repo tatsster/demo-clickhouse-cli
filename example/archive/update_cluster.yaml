@@ -1,0 +1,13 @@
+---
+# delete cluster will delete all databases belong
+operator: UpdateCluster
+name: tiki_cdp
+delete: false # if delete = true then all remain fields could be omitted
+hosts:
+  - host: clickhouse-0.clickhouse-hs
+    port: 9000
+  - host: clickhouse-1.clickhouse-hs
+    port: 9000
+  - host: clickhouse-2.clickhouse-hs
+    port: 9000
+enable: false # if not enable, then will dry run

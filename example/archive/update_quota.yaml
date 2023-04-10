@@ -1,0 +1,17 @@
+---
+operator: UpdateQuota
+name: developers
+limits:
+  - duration: 3600 # limit queries, errors, etc. in 1 hour
+    queries: 0 # no limit
+    errors: 0
+    result_rows: 0
+    read_rows: 0
+    execution_time: 0
+  - duration: 86400 # limit queries, error, etc. in 1 day
+    queries: 10000
+    errors: 1000
+    result_rows: 5000000000
+    read_rows: 500000000000
+    execution_time: 7200
+enable: false # if not enable, then will dry run

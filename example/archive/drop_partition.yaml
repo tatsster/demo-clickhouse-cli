@@ -1,0 +1,12 @@
+---
+# drop partition of table
+operator: DropPartition
+cluster_name: tiki_cdp
+hosts: # if has not cluster_name, must specify hosts that table will be created to
+  - host: clickhouse-0.clickhouse-hs
+    port: 9000
+name: session_events
+partitions:
+  - 2020-02-20 # drop partition with name = '2020-02-20'
+  - toDateTime('2020-02-20') # drop partition with name = toDateTime('2020-02-20')
+enable: false # if not enable, then will dry run

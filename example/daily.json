@@ -1,0 +1,23 @@
+{
+    "org_id": "tiki_aff",
+    "database": "tiki",
+    "table": "daily",
+    "columns": [
+        {
+            "name": "uuid",
+            "expression": "String"
+        },
+        {
+            "name": "name",
+            "expression": "Nullable(String) CODEC(ZSTD(3))"
+        }, 
+        {
+            "name": "event_time",
+            "expression": "DateTime"
+        },
+        {
+            "name": "price",
+            "expression": "Float64"
+        }
+    ]
+}

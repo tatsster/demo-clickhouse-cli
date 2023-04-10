@@ -1,0 +1,24 @@
+---
+# refers to https://clickhouse.tech/docs/en/engines/table_engines/integrations/kafka/
+operator: IntegrateKafka
+cluster_name: tiki_cdp # cluster where kafka consumer will be place into
+host: clickhouse-0.clickhouse-hs # instance where kafka consumer will be place into
+port: 9000
+consumer: # setup consumer config
+  name: queue_session_events
+  columns:
+    - date_key Date
+    - event_time UInt64
+  brokers:
+    - host: host-1
+      port: 9092
+  group_id: clickhouse_tiki_cdp_consumer_prod
+  format: JSONEachRow # refers to https://clickhouse.tech/docs/en/interfaces/formats/
+  num_consumers: 3 # amount of consumers will be generated
+materialized_view: # setup materialized view config
+  name: consumer_session_events
+  dest_table: realtime_session_events # destination table
+  # sql: not sure about this, will think more later
+enable: false # if not enable, then will dry run
+
+

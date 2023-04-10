@@ -1,0 +1,9 @@
+<yandex>
+    <macros>
+        <layer>01</layer>
+        <replica1>01</replica1>
+        <shard1>shard_1</shard1>
+        <replica2>02</replica2>
+        <shard2>shard_3</shard2>
+    </macros>
+</yandex>
